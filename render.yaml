@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: rpc-telegrambot
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: ALLOWED_ORIGIN
+        value: https://rpc-order-website.onrender.com
+      - key: REVIEWS_AUTO_APPROVE
+        value: "true"
+      - key: TURNSTILE_REQUIRED
+        value: "true"
+      - key: TURNSTILE_SITE_KEY
+        sync: false
+      - key: TURNSTILE_SECRET_KEY
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: TELEGRAM_MESSAGE_THREAD_ID
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
